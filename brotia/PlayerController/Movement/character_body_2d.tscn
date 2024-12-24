@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3g47yrs0h0o3"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_v152l"]
+[ext_resource type="Script" path="res://PlayerController/Movement/character_body_2d.gd" id="1_v152l"]
 [ext_resource type="Texture2D" uid="uid://4u2kbkactwh4" path="res://icon.svg" id="2_peiao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_553fp"]
