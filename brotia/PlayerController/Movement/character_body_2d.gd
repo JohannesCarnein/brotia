@@ -1,16 +1,23 @@
 extends CharacterBody2D
 
-@onready var CAM = %Camera2D
 @onready var PLAYER_SPRITE = %Sprite2D
+@onready var MAINHAND = %MAINHAND
+@onready var SECONDARYHAND = %SECONDARYHAND
+@onready var INV = %INVENTORY
 
 var look_direction = Vector2(0,0)
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
+@export var SPEED = 300.0
 
 func _input(event: InputEvent) -> void:
-	CAM._input(event)
+	if event.is_action("hand_use_main"):
+		MAINHAND.use()
+		
+	if event.is_action("hand_use_secondary"):
+		SECONDARYHAND.use()
+	
+	if event.is_action("Inv"):
+		INV.input(event)
 
 func _physics_process(delta: float) -> void:
 

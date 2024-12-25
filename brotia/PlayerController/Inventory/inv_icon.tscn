@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjeyapws64u64"]
+
+[ext_resource type="Script" path="res://PlayerController/Inventory/inv_icon.gd" id="1_c0gmh"]
+[ext_resource type="Texture2D" uid="uid://dsb386sbmrnud" path="res://ITEM/icons/ERROR_icon.png" id="2_0b016"]
+
+[node name="INV_ICON" type="Control" node_paths=PackedStringArray("TEXTURE")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_c0gmh")
+TEXTURE = NodePath("TextureRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = -10
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0b016")

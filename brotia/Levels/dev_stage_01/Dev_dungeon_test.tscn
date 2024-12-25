@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d01ksutft4f1t"]
+[gd_scene load_steps=5 format=3 uid="uid://d01ksutft4f1t"]
 
 [ext_resource type="PackedScene" uid="uid://d030d1sb3e7ko" path="res://Levels/dev_stage_01/Dev_dungeon.tscn" id="1_fcfxd"]
 [ext_resource type="PackedScene" uid="uid://c3g47yrs0h0o3" path="res://PlayerController/Movement/character_body_2d.tscn" id="2_dytci"]
+[ext_resource type="PackedScene" uid="uid://3muy0aakiyhg" path="res://ITEM/ITEM_ON_GROUND.tscn" id="3_hny17"]
+[ext_resource type="PackedScene" uid="uid://bqurkg3shn0jm" path="res://PlayerController/CAM/cam_holder.tscn" id="4_j377q"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,3 +11,12 @@
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_dytci")]
 position = Vector2(124, 91)
+
+[node name="CAM_HOLDER2" parent="CharacterBody2D" node_paths=PackedStringArray("Target") instance=ExtResource("4_j377q")]
+Target = NodePath("..")
+
+[node name="Node2D2" parent="." instance=ExtResource("3_hny17")]
+position = Vector2(184, 93)
+
+[node name="Node2D3" parent="." instance=ExtResource("3_hny17")]
+position = Vector2(214, 145)

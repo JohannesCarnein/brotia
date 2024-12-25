@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3muy0aakiyhg"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM.gd" id="1_85rsg"]
+[ext_resource type="Texture2D" uid="uid://cpk0hiklcgkqs" path="res://Art_Assets/RF_Catacombs_v1.0/candleA_01.png" id="2_5ik6v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnwvv"]
+radius = 4.0
+height = 20.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_85rsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5ik6v")
+
+[node name="pickup_item" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_item"]
+shape = SubResource("CapsuleShape2D_qnwvv")
+
+[connection signal="area_entered" from="pickup_item" to="." method="_on_area_2d_area_entered"]

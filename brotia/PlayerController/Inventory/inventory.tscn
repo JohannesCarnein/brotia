@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4p6ylxoc8dd"]
+
+[ext_resource type="Script" path="res://PlayerController/Inventory/inventory.gd" id="1_afnr8"]
+[ext_resource type="Script" path="res://PlayerController/Inventory/grid_container.gd" id="2_khjgm"]
+
+[node name="INVENTORY" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_afnr8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.5
+offset_top = -258.0
+offset_right = 505.5
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 28
+script = ExtResource("2_khjgm")
+
+[connection signal="items_changed" from="." to="Panel/GridContainer" method="_on_inventory_items_changed"]

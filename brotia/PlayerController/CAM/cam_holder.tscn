@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqurkg3shn0jm"]
+
+[ext_resource type="Script" path="res://PlayerController/CAM/cam_holder.gd" id="1_nsh7x"]
+[ext_resource type="Script" path="res://PlayerController/Movement/camera_2d.gd" id="2_bu2x7"]
+
+[node name="CAM_HOLDER" type="Node2D"]
+script = ExtResource("1_nsh7x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_bu2x7")
