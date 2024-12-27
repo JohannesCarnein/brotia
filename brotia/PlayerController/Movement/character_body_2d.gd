@@ -2,19 +2,21 @@ extends CharacterBody2D
 
 @onready var PLAYER_SPRITE = %Sprite2D
 @onready var MAINHAND = %MAINHAND
-@onready var SECONDARYHAND = %SECONDARYHAND
 @onready var INV = %INVENTORY
 
 var look_direction = Vector2(0,0)
 
 @export var SPEED = 300.0
 
+func _ready() -> void:
+	connect_to_Globals()
+	
+func connect_to_Globals():
+	Globals.gPlayer = self
+
 func _input(event: InputEvent) -> void:
 	if event.is_action("hand_use_main"):
 		MAINHAND.use()
-		
-	if event.is_action("hand_use_secondary"):
-		SECONDARYHAND.use()
 	
 	if event.is_action("Inv"):
 		INV.input(event)

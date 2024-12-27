@@ -1,14 +1,11 @@
-extends Control
-class_name INV_ICON
+extends TextureRect
+class_name SLOT
 
 var Item_id
-var slot_type = "Universal"
+@export var slot_type:String
 @export var TEXTURE:TextureRect
 @onready var COLOR:ColorRect = %ColorRect
 var active = false
-
-
-
 
 func set_active(state:bool):
 	active = state
@@ -29,4 +26,3 @@ func update(item_id):
 	if COLOR:
 		COLOR.color = ItemDB.Items[item_id]["color"]
 	Item_id = item_id
-	

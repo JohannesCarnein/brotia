@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemDB="*res://ITEM/ITEM_DB.gd"
+Globals="*res://Globals/Globals.gd"
 
 [file_customization]
 

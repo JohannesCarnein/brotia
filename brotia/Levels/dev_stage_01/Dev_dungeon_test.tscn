@@ -17,6 +17,19 @@ Target = NodePath("..")
 
 [node name="Node2D2" parent="." instance=ExtResource("3_hny17")]
 position = Vector2(184, 93)
+Item_ID = 1
 
 [node name="Node2D3" parent="." instance=ExtResource("3_hny17")]
 position = Vector2(214, 145)
+Item_ID = 1
+
+[node name="Node2D4" parent="." instance=ExtResource("3_hny17")]
+position = Vector2(126, 152)
+
+[node name="Node2D5" parent="." instance=ExtResource("3_hny17")]
+position = Vector2(79, -67)
+Item_ID = 3
+
+[node name="Node2D6" parent="." instance=ExtResource("3_hny17")]
+position = Vector2(208, -55)
+Item_ID = 4

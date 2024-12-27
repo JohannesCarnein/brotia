@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwa3f7cidutxy"]
+
+[ext_resource type="Script" path="res://PlayerController/Inventory/item_drag.gd" id="1_1gp3a"]
+
+[node name="cursor" type="TextureRect"]
+z_index = 100
+z_as_relative = false
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1gp3a")

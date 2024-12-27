@@ -8,4 +8,5 @@ script = ExtResource("1_nsh7x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+zoom = Vector2(3, 3)
 script = ExtResource("2_bu2x7")

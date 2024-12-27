@@ -100,7 +100,6 @@ offset_bottom = 245.0
 scale = Vector2(3, 3)
 texture = ExtResource("6_wvwyv")
 script = ExtResource("8_ijgan")
-slot_type = "Hand"
 TEXTURE = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/Equipment/MainHand"]
@@ -115,14 +114,13 @@ grow_vertical = 2
 [node name="Head" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/Equipment" node_paths=PackedStringArray("TEXTURE")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_left = 288.0
-offset_top = 55.0
-offset_right = 320.0
-offset_bottom = 87.0
+offset_left = 148.0
+offset_top = 29.0
+offset_right = 180.0
+offset_bottom = 61.0
 scale = Vector2(3, 3)
 texture = ExtResource("6_wvwyv")
 script = ExtResource("8_ijgan")
-slot_type = "Head"
 TEXTURE = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/Equipment/Head"]
@@ -144,7 +142,6 @@ offset_bottom = 245.0
 scale = Vector2(3, 3)
 texture = ExtResource("6_wvwyv")
 script = ExtResource("8_ijgan")
-slot_type = "Chest"
 TEXTURE = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/Equipment/Chest"]
@@ -166,7 +163,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info"]
-z_index = -9
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,19 +184,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Item_1_Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer/Item_1/HBoxContainer"]
-z_index = 50
 texture_filter = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-
-[node name="Item_1_Icon2" type="TextureRect" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer/Item_1/HBoxContainer/Item_1_Icon"]
-z_index = -1
-texture_filter = 1
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 0
-offset_right = 120.0
-offset_bottom = 120.0
-texture = ExtResource("6_wvwyv")
 
 [node name="Item_1_Stats" type="TextEdit" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer/Item_1/HBoxContainer"]
 layout_mode = 2
@@ -209,7 +195,6 @@ editable = false
 wrap_mode = 1
 
 [node name="Item_2" type="BoxContainer" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer" node_paths=PackedStringArray("Inventory", "TEXTURE", "TEXT")]
-z_index = -2
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_t6bna")
@@ -219,7 +204,6 @@ TEXTURE = NodePath("HBoxContainer/Item_2_Icon")
 TEXT = NodePath("HBoxContainer/Item_2_Stats")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer/Item_2"]
-show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -231,17 +215,8 @@ editable = false
 wrap_mode = 1
 
 [node name="Item_2_Icon" type="TextureRect" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer/Item_2/HBoxContainer"]
-z_index = 50
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-
-[node name="Item_1_Icon2" type="TextureRect" parent="CenterContainer/VBoxContainer/Info_Bar/Item_Info/HBoxContainer/Item_2/HBoxContainer/Item_2_Icon"]
-z_index = -1
-texture_filter = 1
-custom_minimum_size = Vector2(120, 120)
-offset_right = 120.0
-offset_bottom = 120.0
-texture = ExtResource("6_wvwyv")
 
 [node name="Character_Info" type="Panel" parent="CenterContainer/VBoxContainer/Info_Bar"]
 custom_minimum_size = Vector2(400, 0)
