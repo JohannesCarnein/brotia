@@ -30,6 +30,7 @@ position = Vector2(10, 3)
 script = ExtResource("4_bcc6k")
 
 [node name="Weapon" parent="MAINHAND" instance=ExtResource("4_gqo4c")]
+number_of_projectiles = 6
 
 [node name="Pickup_area" type="Area2D" parent="."]
 script = ExtResource("5_mlxhv")

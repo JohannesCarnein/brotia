@@ -1,16 +1,19 @@
 extends CharacterBody2D
 
-var pos:Vector2
-var rot:float
+var exclude
+var start_pos:Vector2
+var start_rot:float
 var dir:Vector2
 var speed = 600.0
 var slow_down = 0.5
 
+@onready var collision = %CollisionShape2D
 @onready var _prev_pos = global_position
 
 func _ready() -> void:
-	global_position = pos
-	global_rotation = rot
+	#add_collision_exception_with()
+	global_position = start_pos
+	global_rotation = start_rot
 
 func _physics_process(delta: float) -> void:
 	velocity= dir*speed

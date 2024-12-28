@@ -4,12 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://caaxu6gfkap6e" path="res://ITEM/icons/potato_icon.png" id="2_as1qe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1byr1"]
-radius = 7.0
+radius = 5.0
 
 [node name="projectile" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_1hnx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_1byr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

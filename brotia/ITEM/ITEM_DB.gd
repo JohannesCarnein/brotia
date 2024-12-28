@@ -19,7 +19,7 @@ const Items = [
 			"icon":"res://ITEM/icons/potato_icon.png",
 			"space_req":1,
 			"color":Color(1.0,0.1,0.5,1.0),
-			"description":"Energie für den weg und im Notfall ein Wurfgeschoss",
+			"description":"Energie für den Weg und im Notfall ein Wurfgeschoss",
 			"slot":"Hand"
 		},
 		{"name":"Rüstung",
