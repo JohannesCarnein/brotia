@@ -239,6 +239,7 @@ layout_mode = 2
 z_index = -1
 texture_filter = 1
 custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
 offset_right = 120.0
 offset_bottom = 120.0
 texture = ExtResource("6_wvwyv")

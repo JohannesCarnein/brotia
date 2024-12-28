@@ -15,7 +15,7 @@ func connect_to_Globals():
 	Globals.gPlayer = self
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("hand_use_main"):
+	if event.is_action_pressed("hand_use_main"):
 		MAINHAND.use()
 	
 	if event.is_action("Inv"):

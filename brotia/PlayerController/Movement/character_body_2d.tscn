@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3g47yrs0h0o3"]
+[gd_scene load_steps=9 format=3 uid="uid://c3g47yrs0h0o3"]
 
 [ext_resource type="Script" path="res://PlayerController/Movement/character_body_2d.gd" id="1_v152l"]
 [ext_resource type="Texture2D" uid="uid://c1up8kes8f3rv" path="res://Art_Assets/Player/popelpete/idle.png" id="2_cf56f"]
 [ext_resource type="Script" path="res://PlayerController/Movement/Hand.gd" id="4_bcc6k"]
+[ext_resource type="PackedScene" uid="uid://cga88mi0aus8s" path="res://projectile/weapon.tscn" id="4_gqo4c"]
 [ext_resource type="Script" path="res://PlayerController/Movement/pickup_area.gd" id="5_mlxhv"]
 [ext_resource type="PackedScene" uid="uid://b4p6ylxoc8dd" path="res://PlayerController/Inventory/inventory.tscn" id="5_wwxx3"]
 
@@ -27,6 +28,8 @@ texture = ExtResource("2_cf56f")
 unique_name_in_owner = true
 position = Vector2(10, 3)
 script = ExtResource("4_bcc6k")
+
+[node name="Weapon" parent="MAINHAND" instance=ExtResource("4_gqo4c")]
 
 [node name="Pickup_area" type="Area2D" parent="."]
 script = ExtResource("5_mlxhv")
