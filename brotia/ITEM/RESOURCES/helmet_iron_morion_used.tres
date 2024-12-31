@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://cjmkgm7q75opp"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_mcpwn"]
+[ext_resource type="Texture2D" uid="uid://c8gegkdtt3a3c" path="res://ITEM/icons/helmet_iron_morion_used.png" id="2_iirtf"]
+
+[resource]
+script = ExtResource("1_mcpwn")
+ID = 6
+name = "used iron morion"
+description = "Den Pöbel beeindruckt es"
+max_stack_count = 1
+texture = ExtResource("2_iirtf")
+slot_flags = Array[int]([7])

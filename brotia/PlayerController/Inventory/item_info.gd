@@ -20,14 +20,14 @@ func update(item_id):
 	#var item_id = Inventory.content[index]
 	if item_id == null:
 		item_id = 0
-	var texture_path = "res://ITEM/icons/ERROR_icon.png"
-	if ItemDB.Items[item_id]["icon"]:
-		texture_path = ItemDB.Items[item_id]["icon"]
-	var image = Image.new()
-	image.load(texture_path)
-	var image_texture = ImageTexture.new()
-	image_texture.set_image(image)
-		
+	#var texture_path = "res://ITEM/icons/ERROR_icon.png"
+	#if ItemDB.Items[item_id]["icon"]:
+	#	texture_path = ItemDB.Items[item_id]["icon"]
+	#var image = Image.new()
+	#image.load(texture_path)
+	#var image_texture = ImageTexture.new()
+	#image_texture.set_image(image)
+	var image_texture = ItemDB.get_property_of_index(item_id,"texture")
 	TEXTURE.texture = image_texture
-	
-	TEXT.text = ItemDB.Items[item_id]["description"]
+	var slot_id = ItemDB.Items[item_id]["slot_flags"]
+	TEXT.text = str(slot_id)+ItemDB.Items[item_id]["description"]

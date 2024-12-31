@@ -1,0 +1,151 @@
+[gd_scene load_steps=25 format=3 uid="uid://c3g47yrs0h0o3"]
+
+[ext_resource type="Script" path="res://PlayerController/Movement/character_body_2d.gd" id="1_v152l"]
+[ext_resource type="Texture2D" uid="uid://coewt27rp3s3w" path="res://Art_Assets/Player/popelpete/anim/arm_R_walk_0010.png" id="3_3cdra"]
+[ext_resource type="Texture2D" uid="uid://cgup3scnia7ad" path="res://Art_Assets/Player/popelpete/anim/arm_R_walk_0020.png" id="4_a3idk"]
+[ext_resource type="Script" path="res://PlayerController/Movement/Hand.gd" id="4_bcc6k"]
+[ext_resource type="PackedScene" uid="uid://cga88mi0aus8s" path="res://projectile/weapon.tscn" id="4_gqo4c"]
+[ext_resource type="Script" path="res://PlayerController/Movement/sprite_2d.gd" id="5_8ajj0"]
+[ext_resource type="Texture2D" uid="uid://1egvx4sdugqr" path="res://Art_Assets/Player/popelpete/anim/arm_R_walk_0030.png" id="5_gxrd0"]
+[ext_resource type="Script" path="res://PlayerController/Movement/pickup_area.gd" id="5_mlxhv"]
+[ext_resource type="PackedScene" uid="uid://b4p6ylxoc8dd" path="res://PlayerController/Inventory/inventory.tscn" id="5_wwxx3"]
+[ext_resource type="Texture2D" uid="uid://bky623wjiidgh" path="res://Art_Assets/Player/popelpete/anim/arm_R_walk_0040.png" id="6_3qbf6"]
+[ext_resource type="Texture2D" uid="uid://dmf5h0het27c3" path="res://Art_Assets/Player/popelpete/anim/arm_R_walk_0050.png" id="7_ewboe"]
+[ext_resource type="SpriteFrames" uid="uid://3qgf4eajmt8k" path="res://Art_Assets/Player/popelpete/parts/arm_l_walk.tres" id="7_ltr7f"]
+[ext_resource type="Texture2D" uid="uid://cfhvx06cffojo" path="res://Art_Assets/Player/popelpete/anim/arm_R_walk_0060.png" id="8_imqua"]
+[ext_resource type="SpriteFrames" uid="uid://bgm27pkng3ejd" path="res://Art_Assets/Player/popelpete/anim/popelpete_roll.tres" id="14_c4qem"]
+[ext_resource type="Script" path="res://ENEMY/health_component.gd" id="15_y2tys"]
+[ext_resource type="Texture2D" uid="uid://dd3wtlx0ntruf" path="res://ITEM/icons/Empty_icon.png" id="16_lsfj8"]
+[ext_resource type="Script" path="res://PlayerController/Movement/debug_shape.gd" id="17_21dks"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8644u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im6l6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3cdra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a3idk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gxrd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3qbf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ewboe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_imqua")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gi72m"]
+radius = 29.0172
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0otpv"]
+bg_color = Color(0.176905, 0.291345, 0.244486, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6igvw"]
+bg_color = Color(0.348276, 0.687397, 0.410755, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68h78"]
+bg_color = Color(0.421966, 0.170906, 0.186278, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku1jt"]
+bg_color = Color(0.865305, 0.282678, 0.235948, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+safe_margin = 0.2
+script = ExtResource("1_v152l")
+SPEED = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape2D_8644u")
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(5, -4)
+sprite_frames = SubResource("SpriteFrames_im6l6")
+script = ExtResource("5_8ajj0")
+
+[node name="MAINHAND" type="Node2D" parent="Sprite2D2"]
+unique_name_in_owner = true
+position = Vector2(3, 8)
+script = ExtResource("4_bcc6k")
+
+[node name="Weapon" parent="Sprite2D2/MAINHAND" instance=ExtResource("4_gqo4c")]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(0, 1.13687e-13)
+number_of_projectiles = 3
+spread = 0.2
+
+[node name="Sprite2D3" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(-5, -4)
+sprite_frames = ExtResource("7_ltr7f")
+
+[node name="Pickup_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_mlxhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup_area"]
+shape = SubResource("CircleShape2D_gi72m")
+
+[node name="INVENTORY" parent="." instance=ExtResource("5_wwxx3")]
+unique_name_in_owner = true
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = ExtResource("14_c4qem")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(50, 3)
+offset_left = -25.0
+offset_top = -27.0
+offset_right = 25.0
+offset_bottom = -24.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0otpv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6igvw")
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(50, 3)
+offset_left = -25.0
+offset_top = -31.0
+offset_right = 25.0
+offset_bottom = -28.0
+theme_override_styles/background = SubResource("StyleBoxFlat_68h78")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ku1jt")
+value = 100.0
+show_percentage = false
+
+[node name="HEALTH_COMPONENT" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("15_y2tys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.0913319, 0.0913319)
+texture = ExtResource("16_lsfj8")
+script = ExtResource("17_21dks")
+
+[connection signal="area_entered" from="Pickup_area" to="Pickup_area" method="_on_area_entered"]
+[connection signal="main_hand_changed" from="INVENTORY" to="Sprite2D2/MAINHAND" method="_on_inventory_main_hand_changed"]

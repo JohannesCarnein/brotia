@@ -2,9 +2,9 @@ extends TextureRect
 class_name SLOT
 
 var Item_id
-@export var slot_type:String
+@export var slot_type:ITEM_RESOURCE.SlotType
 @export var TEXTURE:TextureRect
-@onready var COLOR:ColorRect = %ColorRect
+@export var _signal:String
 var active = false
 
 func set_active(state:bool):
@@ -14,15 +14,7 @@ func set_active(state:bool):
 func update(item_id):
 	if item_id == null:
 		item_id = 0
-	var texture_path = "res://ITEM/icons/ERROR_icon.png"
-	if ItemDB.Items[item_id]["icon"]:
-		texture_path = ItemDB.Items[item_id]["icon"]
-	var image = Image.new()
-	image.load(texture_path)
-	var image_texture = ImageTexture.new()
-	image_texture.set_image(image)
-		
+	var image_texture = ItemDB.get_property_of_index(item_id,"texture")
 	TEXTURE.texture = image_texture
-	if COLOR:
-		COLOR.color = ItemDB.Items[item_id]["color"]
 	Item_id = item_id
+	Globals.gPlayer.INV.emit_signal(_signal, item_id)

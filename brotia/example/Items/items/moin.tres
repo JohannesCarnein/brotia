@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://droha0g2x12jh"]
+
+[ext_resource type="Script" path="res://example/Items/item_type.gd" id="1_b64pu"]
+[ext_resource type="Texture2D" uid="uid://caaxu6gfkap6e" path="res://ITEM/icons/potato_icon.png" id="2_p4ts1"]
+
+[resource]
+script = ExtResource("1_b64pu")
+name = "moin"
+description = "alda moin"
+max_stack_count = 2
+in_inventory_width = 1
+in_inventory_height = 1
+texture = ExtResource("2_p4ts1")
+slot_flags = 12
+default_properties = {}

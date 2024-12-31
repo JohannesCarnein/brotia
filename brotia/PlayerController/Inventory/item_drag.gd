@@ -8,8 +8,9 @@ var _holding = null
 var _is_holding = false
 
 func _process(delta: float) -> void:
-	var mouse_position = pos+get_viewport().get_mouse_position()
-	self.position = mouse_position
+	#var mouse_position = pos+get_viewport().get_mouse_position()
+	var mouse_position = get_global_mouse_position()
+	self.global_position = mouse_position
 	#var item_loc = check_under_cursor()
 	#var area = item_loc[0]
 	#var item_id = item_loc[1]
@@ -56,26 +57,31 @@ func update(item_id):
 	if item_id == null:
 		item_id = 0
 	var texture_path = "res://ITEM/icons/ERROR_icon.png"
-	if ItemDB.Items[item_id]["icon"]:
-		texture_path = ItemDB.Items[item_id]["icon"]
-	var image = Image.new()
-	image.load(texture_path)
-	var image_texture = ImageTexture.new()
-	image_texture.set_image(image)
+	#if ItemDB.Items[item_id]["icon"]:
+	#	texture_path = ItemDB.Items[item_id]["icon"]
+	#var image = Image.new()
+	#image.load(texture_path)
+	#var image_texture = ImageTexture.new()
+	#image_texture.set_image(image)
+	var image_texture = ItemDB.get_property_of_index(item_id,"texture")
 	self.texture = image_texture
 
 func drop_item():
 	var item_loc = check_under_cursor()
 	var area = item_loc[0]
 	var item_id = item_loc[1]
-	var slot_type = ""
+	if item_id == null:
+		item_id = 0
+	var slot_type = 0
 	if area != null:
 		slot_type = Globals.gPlayer.INV.Areas[area].Slots[item_id].slot_type
-	var item_slot_type = ItemDB.Items[_holding]["slot"]
-	if slot_type == "Universal":
-		slot_type = item_slot_type
-	#print("drop",item_id)
-	if item_id == _index_from and area == _area_from or slot_type != item_slot_type:
+		print(slot_type)
+	#var item_slot_type = ItemDB.Items[_holding]["slot"]
+	var item_slot_type = ItemDB.get_property_of_index(_holding,"slot_flags")
+	if slot_type == 0:
+		item_slot_type = [0]
+	print("drop",item_id)
+	if item_id == _index_from and area == _area_from or slot_type not in item_slot_type:
 		Globals.gPlayer.INV.set_item(_area_from,_index_from, _holding)
 		Globals.gPlayer.INV.set_active(_area_from,_index_from)
 		clear_texture()

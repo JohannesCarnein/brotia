@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://bkwatdd6navoh"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_8lcjo"]
+[ext_resource type="Texture2D" uid="uid://cs6so13giai8d" path="res://ITEM/icons/potion_health_small.png" id="2_558gd"]
+
+[resource]
+script = ExtResource("1_8lcjo")
+ID = 8
+name = "small health potion"
+description = "Viel bringts nicht aber man nimmt was man bekommt"
+max_stack_count = 1
+texture = ExtResource("2_558gd")
+slot_flags = Array[int]([1])

@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bgm27pkng3ejd"]
+
+[ext_resource type="Texture2D" uid="uid://dx3ku56gisi2s" path="res://Art_Assets/Player/popelpete/roll/roll_01.png" id="1_xcy68"]
+[ext_resource type="Texture2D" uid="uid://qhy3bivqx08s" path="res://Art_Assets/Player/popelpete/roll/roll_02.png" id="2_18dmq"]
+[ext_resource type="Texture2D" uid="uid://dq2rfgijwsaos" path="res://Art_Assets/Player/popelpete/roll/roll_03.png" id="3_56jwj"]
+[ext_resource type="Texture2D" uid="uid://b5ujtikd6l4vm" path="res://Art_Assets/Player/popelpete/roll/roll_04.png" id="4_r46m4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xcy68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_18dmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_56jwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r46m4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

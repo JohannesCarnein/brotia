@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://eplsb33uxi74"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_hbrte"]
+[ext_resource type="Texture2D" uid="uid://clbufaqywvlr0" path="res://ITEM/icons/helmet_iron_morion_new.png" id="2_lmm45"]
+
+[resource]
+script = ExtResource("1_hbrte")
+ID = 4
+name = "new iron morion"
+description = "So schick, dass man sich sorgen um die diebe macht"
+max_stack_count = 1
+texture = ExtResource("2_lmm45")
+slot_flags = Array[int]([7])

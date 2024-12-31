@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://bkkagjw0gqnqx"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_caut6"]
+[ext_resource type="Texture2D" uid="uid://cjmaesq542p65" path="res://ITEM/icons/stick_icon.png" id="2_yk4xd"]
+
+[resource]
+script = ExtResource("1_caut6")
+ID = 9
+name = "simple stick"
+description = "Ein einfacher Stock ohne besondere Form"
+max_stack_count = 1
+texture = ExtResource("2_yk4xd")
+slot_flags = Array[int]([5, 6])

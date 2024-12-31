@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://coqhim01un2fi"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_uxdcf"]
+[ext_resource type="Texture2D" uid="uid://bvs6lpxgf2sut" path="res://ITEM/icons/Breastplate_iron_old.png" id="2_u1yrn"]
+
+[resource]
+script = ExtResource("1_uxdcf")
+ID = 3
+name = "old iron breastplate"
+description = "Wiegt ne tonne und ist fast nutzlos... 
+das bringt und schlechte erinnerungen wieder hoch"
+max_stack_count = 1
+texture = ExtResource("2_u1yrn")
+slot_flags = Array[int]([8])

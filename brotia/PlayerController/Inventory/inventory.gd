@@ -3,11 +3,11 @@ class_name INVENTORY
 signal items_changed(itemindex)
 signal active_changed(item)
 signal focus_changed(item)
+signal main_hand_changed(item)
 
 @onready var Grid = %GridContainer
 @onready var Equipment = %Equipment
 @export var space = 50
-#var content:Array = []
 var active_item
 var focused_item
 var Areas = []
@@ -15,10 +15,6 @@ var Areas = []
 func _ready() -> void:
 	build_Areas()
 	self.visible = false
-	#for i in range(space):
-	#	content.append(null)
-	#print(content)
-	#Grid.init(content)
 
 func build_Areas():
 	Areas.append(Grid)
@@ -26,25 +22,11 @@ func build_Areas():
 
 func set_item(area,index, item):
 	print(area,"  ", index, "  ", item)
-	#var prev_item = content[index]
-	#content[index] = item
-	#emit_signal("items_changed", [index])
 	var prev_item = Areas[area].content[index]
 	print(prev_item)
 	
 	Areas[area].update_icon(index,item)
 	return prev_item
-	
-"""
-func swap_item(area,index,target_index):
-	var target_item = content[target_index]
-	var item = content[index]
-	content[target_index] = item
-	content[index] = target_item
-	#emit_signal("items_changed", [index,target_index])
-	Areas[area].update_icon(target_index,item)
-	Areas[area].update_icon(index,target_item)
-"""	
 
 func check_space(space_required:int):
 	var i = -1
@@ -75,7 +57,6 @@ func get_area_under_cursor(cursor_pos):
 			var rect = area.get_global_rect()
 			if rect.has_point(cursor_pos):
 				return i
-				break
 	return -1
 	
 func get_item_under_cursor(cursor_pos):
@@ -89,8 +70,6 @@ func get_item_under_cursor(cursor_pos):
 			var rect = slot.get_global_rect()
 			if rect.has_point(cursor_pos):
 				return [area_id,i]
-				print(area.Slots[i])
-				break
 				
 		return [null,null]
 	else:

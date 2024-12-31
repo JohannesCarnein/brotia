@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7i84u27vbqxw"]
+
+[ext_resource type="Texture2D" uid="uid://p2v52wffpl4a" path="res://Art_Assets/Player/popelpete/effekts/footsetps/foot_steps.png" id="1_5jhux"]
+[ext_resource type="Script" path="res://PlayerController/Movement/debug_shape.gd" id="2_l0axl"]
+
+[node name="Sprite2D" type="Sprite2D"]
+z_as_relative = false
+texture_filter = 1
+scale = Vector2(0.478837, 0.478837)
+texture = ExtResource("1_5jhux")
+script = ExtResource("2_l0axl")

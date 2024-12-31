@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://cbijcvqvi2mww"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_edl5g"]
+[ext_resource type="Texture2D" uid="uid://c7ifdb1hypxb2" path="res://ITEM/icons/helmet_iron_morion_old.png" id="2_uuj47"]
+
+[resource]
+script = ExtResource("1_edl5g")
+ID = 5
+name = "old iron morion"
+description = "hmm naja... zumindest wird den keiner klauen"
+max_stack_count = 1
+texture = ExtResource("2_uuj47")
+slot_flags = Array[int]([7])

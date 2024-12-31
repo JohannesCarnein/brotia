@@ -12,10 +12,11 @@ func _ready() -> void:
 	init(content)
 
 func init(content):
-	self.columns = floor(size.x/32.0)
+	self.columns = floor(size.x/64.0)
 	print(self.columns)
 	for item in content:
 		var Icon = Icon_Base.instantiate()
+		Icon.scale = Vector2(2,2)
 		Icon.update(item)
 		self.add_child(Icon)
 		Slots.append(Icon)

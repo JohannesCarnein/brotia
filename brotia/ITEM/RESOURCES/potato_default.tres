@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://ckqteq65mlnp1"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_8pex3"]
+[ext_resource type="Texture2D" uid="uid://caaxu6gfkap6e" path="res://ITEM/icons/potato_icon.png" id="2_8j5qu"]
+
+[resource]
+script = ExtResource("1_8pex3")
+ID = 7
+name = "potato"
+description = "Energie für den Weg und im Notfall ein Wurfgeschoss"
+max_stack_count = 1
+texture = ExtResource("2_8j5qu")
+slot_flags = Array[int]([2, 5, 6])

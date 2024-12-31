@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://byk85qld30b37"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_vaxtv"]
+[ext_resource type="Texture2D" uid="uid://rwd516qiwtqr" path="res://ITEM/icons/Breastplate_iron_new.png" id="2_52rut"]
+
+[resource]
+script = ExtResource("1_vaxtv")
+ID = 1.0
+name = "new iron breastplate"
+description = "Bei anderen hasse ich schicke sachen aber solangsam 
+finde ich daran gefallen"
+max_stack_count = 1
+texture = ExtResource("2_52rut")
+slot_flags = Array[int]([8])

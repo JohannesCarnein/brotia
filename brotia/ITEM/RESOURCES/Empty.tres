@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ITEM_RESOURCE" load_steps=3 format=3 uid="uid://cgbxi0ef71diy"]
+
+[ext_resource type="Script" path="res://ITEM/ITEM_RESOURCE.gd" id="1_ogmes"]
+[ext_resource type="Texture2D" uid="uid://dd3wtlx0ntruf" path="res://ITEM/icons/Empty_icon.png" id="2_e1ckq"]
+
+[resource]
+script = ExtResource("1_ogmes")
+ID = 0
+name = "Empty"
+description = "nix"
+max_stack_count = 1
+texture = ExtResource("2_e1ckq")
+slot_flags = Array[int]([0])
