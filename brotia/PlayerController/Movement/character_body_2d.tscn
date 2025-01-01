@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://ENEMY/health_component.gd" id="15_y2tys"]
 [ext_resource type="Script" path="res://ENEMY/Hitbox.gd" id="16_it7w0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7bqg8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7apsn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_im6l6"]
 animations = [{
@@ -71,8 +71,9 @@ SPEED = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_7bqg8")
+position = Vector2(0, -0.43)
+scale = Vector2(1, 0.53)
+shape = SubResource("CircleShape2D_7apsn")
 
 [node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

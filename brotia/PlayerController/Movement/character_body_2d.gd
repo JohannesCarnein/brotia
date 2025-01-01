@@ -61,6 +61,7 @@ func drop_breadcrumb():
 	
 func connect_to_Globals():
 	Globals.gPlayer = self
+	Debug.draw_text("Moin ich bin PopelPete, das Kind, das lebte...", global_position+Vector2(0.0, 18.0), 3000, Color.GOLDENROD)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("hand_use_main"):

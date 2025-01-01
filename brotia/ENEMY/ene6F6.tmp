@@ -187,8 +187,6 @@ script = ExtResource("5_djmy6")
 [node name="vision_area" type="Area2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.12549)
-collision_layer = 0
-collision_mask = 18
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="vision_area"]
 position = Vector2(50.3438, 0)

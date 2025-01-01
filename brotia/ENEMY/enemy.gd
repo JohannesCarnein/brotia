@@ -6,11 +6,13 @@ class_name ENEMY
 @onready var hp_bar = %ProgressBar
 @onready var health_component = %HEALTH_COMPONENT
 @onready var steering = %STEERING
+@onready var vision_area = %vision_area
 @export var speed = 30
-@export var view_range = 200
+@export var view_range = 300
 @export var draw_debug:bool = true
 
 var nav_target_dict:Dictionary = {}
+var target_list:Array = []
 
 #region:        nav target handeling
 func update_nav_target(category:String, nav_target:NAV_TARGET):
@@ -44,32 +46,34 @@ func sort_nav_target_list(a, b):
 #endregion
 
 func _physics_process(delta: float) -> void:
-	look_for_player_and_create_nav_target(Globals.gPlayer)
-	
-	var target:NAV_TARGET = get_most_important_nav_target()
-	var target_pos = global_position
-	if target != null:
-		target_pos = target.destination
+	if len(target_list) > 0:
+		var player = target_list[0]
+		look_for_player_and_create_nav_target(player)
+		
+		var target:NAV_TARGET = get_most_important_nav_target()
+		var target_pos = global_position
+		if target != null:
+			target_pos = target.destination
 
-	if target != null or global_position.distance_to(target_pos) > 0.01 :
-		velocity = global_position.direction_to(target_pos)*speed
+		if target != null or global_position.distance_to(target_pos) > 0.01 :
+			velocity = global_position.direction_to(target_pos)*speed
+			
+		var deviation_angle = avoid_collision()
+		velocity = velocity.rotated(deviation_angle)
+		if draw_debug:
+			Debug.draw_point(target_pos, delta*1000, Color.ORANGE)
+			Debug.draw_line(global_position, global_position+velocity, delta*1000, Color.ORANGE)
+			
+		var distance_to_move = velocity.length()
+		distance_to_move = min(distance_to_move,global_position.distance_to(target_pos))
+		velocity = velocity.normalized()*distance_to_move
 		
-	var deviation_angle = avoid_collision()
-	velocity = velocity.rotated(deviation_angle)
-	if draw_debug:
-		Debug.draw_point(target_pos, delta*1000, Color.ORANGE)
-		Debug.draw_line(global_position, global_position+velocity, delta*1000, Color.ORANGE)
+		move_and_collide(velocity*delta)
+		if target != null and global_position.distance_to(target_pos) > 0.01:
+			remove_nav_target(target.category,target)
+			pass
 		
-	var distance_to_move = velocity.length()
-	distance_to_move = min(distance_to_move,global_position.distance_to(target_pos))
-	velocity = velocity.normalized()*distance_to_move
-	
-	move_and_collide(velocity*delta)
-	if target != null and global_position.distance_to(target_pos) > 0.01:
-		remove_nav_target(target.category,target)
-		pass
-		
-	debug_draw(str(deviation_angle)+"\n"+str(target)+"\n"+str(health_component.current_health))
+		debug_draw(str(deviation_angle)+"\n"+str(player.name)+"\n"+str(health_component.current_health))
 
 func look_for_player_and_create_nav_target(player:CharacterBody2D):
 	var target
@@ -137,6 +141,7 @@ func avoid_collision() -> float:
 
 func look_in_dir(direction:Vector2):
 	steering.look_at(steering.global_position+direction)
+	vision_area.look_at(vision_area.global_position+direction)
 	
 func modifiy_health(damage):
 	health_component.current_health += damage
@@ -147,7 +152,13 @@ func debug_draw(text):
 func _on_health_component_health_empty() -> void:
 	queue_free()
 
-
 func _on_hitbox_component_attack_recieved(attack: ATTACK) -> void:
 	var damage = -attack.damage
 	modifiy_health(damage)
+
+func _on_vision_area_area_entered(area: Area2D) -> void:
+	var area_owner = area.get_parent()
+	if area_owner is CharacterBody2D:
+		if not area_owner in target_list:
+			if not area_owner is ENEMY:
+				target_list.append(area_owner)

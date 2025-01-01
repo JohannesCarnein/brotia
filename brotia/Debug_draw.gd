@@ -24,6 +24,22 @@ func draw_point(pos: Vector2, persist_ms = 500, color = Color.WHITE):
 	circle.position = pos - Vector2(radius, radius)
 	final_cleanup(circle, persist_ms)
 	
+func draw_text(text: String, pos:Vector2 = Vector2.ZERO, persist_ms = 500, color = Color.WHITE):
+	var mesh_instance:MeshInstance2D = MeshInstance2D.new()
+	var text_mesh:TextMesh = TextMesh.new()
+	text_mesh.text = text
+	text_mesh.pixel_size = 1
+	text_mesh.font_size = 10
+	mesh_instance.mesh = text_mesh
+	mesh_instance.scale.y = -1.0
+	color.a = 1.0
+	mesh_instance.self_modulate = color
+	mesh_instance.global_position = pos
+	mesh_instance.z_as_relative = false
+	mesh_instance.z_index = 100
+	final_cleanup(mesh_instance, persist_ms)
+	
+
 ## 1 -> Lasts ONLY for current physics frame
 ## >1 -> Lasts X time duration.
 ## <1 -> Stays indefinitely
