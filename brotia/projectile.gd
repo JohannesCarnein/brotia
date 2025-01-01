@@ -1,7 +1,9 @@
+class_name PROJECTILE_POTATO
 extends CharacterBody2D
 
 @export var number_of_possible_hits:int = 1
 
+var attack_damage: int = 10
 var destruction_effekt = preload("res://effects/destruction_shatter_effect.tscn")
 var start_pos:Vector2
 var start_rot:float
@@ -9,15 +11,27 @@ var dir:Vector2
 var max_speed = 600.0
 var speed = 600.0
 var slow_down = 0.5
-var attack:ATTACK = ATTACK.new()
+var attack:ATTACK = ATTACK.new(10)
+
 
 var _distance_moved
 
 @onready var collision = %CollisionShape2D
 @onready var _prev_pos = global_position
 
+
+func load_texture(path: String) -> Texture2D:
+	var image_texture := ImageTexture.new()
+	var image := Image.load_from_file(path)
+	image_texture = image_texture.create_from_image(image)
+	return image_texture
+
+func _init(name: String) -> void:
+	if name == "Potato":
+		%Sprite2D.texture
+
+
 func _ready() -> void:
-	attack.damage = 30.0
 	global_position = start_pos
 	global_rotation = start_rot
 

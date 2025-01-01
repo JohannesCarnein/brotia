@@ -1,16 +1,22 @@
-extends Node2D
+class_name ProjectileWeapon
+extends Weapon
+
 var projectile_path = preload("res://projectile/projectile.tscn")
+
+#var projectile = Projectile.new("Potato")
+
+
 @export var number_of_projectiles = 1
 @export var spread = 0.1
 @export var reload_speed = 0.5
 
-var Item_id
-var _ready_to_use = true
 
-func _ready() -> void:
-	var callable = Callable(self,"use")
-	get_parent().use_item_signal.connect(callable)	
-	
+func finish_init() -> void:
+	var callable = Callable(self,"use_main")
+	get_parent().use_item_main_signal.connect(callable)
+	print("finished init")
+
+
 func update_item(item_id):
 	if item_id == null:
 		item_id = 0
@@ -18,7 +24,8 @@ func update_item(item_id):
 	var image_texture = ItemDB.get_property_of_index(item_id,"texture")
 	%Sprite2D.texture = image_texture
 	Item_id = item_id
-	
+
+
 func can_be_usesed():
 	if _ready_to_use == true:
 		return true
@@ -29,8 +36,7 @@ func reload():
 	_ready_to_use = true
 	
 	
-	
-func use():
+func use_main():
 	if can_be_usesed():
 		for i in number_of_projectiles:
 			var offset = randf_range(-spread,spread)
