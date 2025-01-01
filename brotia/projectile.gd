@@ -20,20 +20,13 @@ var _distance_moved
 @onready var _prev_pos = global_position
 
 
-func load_texture(path: String) -> Texture2D:
-	var image_texture := ImageTexture.new()
-	var image := Image.load_from_file(path)
-	image_texture = image_texture.create_from_image(image)
-	return image_texture
-
-func _init(name: String) -> void:
-	if name == "Potato":
-		%Sprite2D.texture
-
-
 func _ready() -> void:
 	global_position = start_pos
 	global_rotation = start_rot
+
+func set_texture(texture: ImageTexture) -> void:
+	$Sprite2D.texture = texture
+
 
 func _physics_process(delta: float) -> void:
 	velocity= dir*speed
@@ -43,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	if _distance_moved < 1*delta:
 		destroy()
 	_prev_pos = global_position 
+
 
 func destroy(impact_pos=global_position):
 	var effekt = destruction_effekt.instantiate()
@@ -57,6 +51,7 @@ func destroy(impact_pos=global_position):
 	effekt.speed_scale *= lerp(0.5,2.5,spread_factor)
 	effekt.trigger_effekt()
 	queue_free()
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is HITBOX:

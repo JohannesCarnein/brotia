@@ -66,7 +66,8 @@ func connect_to_Globals():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("hand_use_main"):
 		MAINHAND.use()
-	
+		
+
 	if event.is_action("Inv"):
 		INV.input(event)
 		
