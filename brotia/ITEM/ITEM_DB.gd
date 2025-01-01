@@ -1,6 +1,6 @@
 extends Node
 var Items=[]
-var items_path = "C:/Users/johan/Documents/Godot_4_Third_Person_Controller/brotia/brotia/ITEM/RESOURCES/"
+var items_path = "res://ITEM/RESOURCES/"
 
 func _ready() -> void:
 	var files = DirAccess.get_files_at(items_path)
