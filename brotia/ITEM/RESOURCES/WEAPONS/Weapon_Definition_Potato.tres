@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WEAPON_DEFINITION" load_steps=4 format=3 uid="uid://gwa8ftx71d8d"]
+
+[ext_resource type="PackedScene" uid="uid://d170tfm68g8eb" path="res://projectile/projectile_scenes/projectile_potato.tscn" id="1_f5pdh"]
+[ext_resource type="Script" path="res://ITEM/WEAPON_DEFINITION.gd" id="2_bo74f"]
+[ext_resource type="Texture2D" uid="uid://caaxu6gfkap6e" path="res://ITEM/icons/potato_icon.png" id="3_58ehw"]
+
+[resource]
+script = ExtResource("2_bo74f")
+name = "Potato"
+texture = ExtResource("3_58ehw")
+type = 1
+projectile = ExtResource("1_f5pdh")
+number_of_projectiles = 1
+spread = 0.1
+reload_speed = 0.5

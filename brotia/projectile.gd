@@ -2,6 +2,7 @@ class_name PROJECTILE_POTATO
 extends CharacterBody2D
 
 @export var number_of_possible_hits:int = 1
+@export var proj_name: String
 
 var attack_damage: int = 10
 var destruction_effekt = preload("res://effects/destruction_shatter_effect.tscn")
@@ -23,6 +24,10 @@ var _distance_moved
 func _ready() -> void:
 	global_position = start_pos
 	global_rotation = start_rot
+	proj_name = proj_name
+	print("Projectile Ready", proj_name)
+	print("Projectile Attack", attack_damage)
+	
 
 func set_texture(texture: ImageTexture) -> void:
 	$Sprite2D.texture = texture

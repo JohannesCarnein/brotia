@@ -11,6 +11,7 @@ func _ready() -> void:
 			Items.sort_custom(sort_id)
 			print(resource.slot_flags)
 
+
 func sort_id(a, b):
 	if a.ID < b.ID:
 		return true

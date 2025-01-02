@@ -90,8 +90,9 @@ script = ExtResource("4_bcc6k")
 unique_name_in_owner = true
 z_index = -1
 position = Vector2(0, 1.13687e-13)
-number_of_projectiles = 3
-spread = 0.2
+
+[node name="Weapon_Texture" type="Sprite2D" parent="Sprite2D2/MAINHAND"]
+unique_name_in_owner = true
 
 [node name="Sprite2D3" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WEAPON_DEFINITION" load_steps=4 format=3 uid="uid://b52xmgck2xi7d"]
+
+[ext_resource type="PackedScene" uid="uid://byobbkxywr4g4" path="res://projectile/projectile_scenes/projectile_arrow.tscn" id="1_3vrmx"]
+[ext_resource type="Script" path="res://ITEM/WEAPON_DEFINITION.gd" id="2_eogyx"]
+[ext_resource type="Texture2D" uid="uid://djvvhtp1iw33m" path="res://ITEM/animated_icons/bow_wood_01.png" id="3_wctaq"]
+
+[resource]
+script = ExtResource("2_eogyx")
+name = "Bow"
+texture = ExtResource("3_wctaq")
+type = 1
+projectile = ExtResource("1_3vrmx")
+number_of_projectiles = 1
+spread = 0.1
+reload_speed = 0.5
