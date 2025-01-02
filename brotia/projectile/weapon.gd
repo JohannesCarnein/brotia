@@ -3,6 +3,7 @@ extends Weapon
 
 var projectile : PackedScene
 
+
 enum RangeType {Melee, Projectile}
 var weapon_name: String
 var texture : Texture2D
@@ -10,15 +11,21 @@ var texture : Texture2D
 var number_of_projectiles: int
 var spread : float
 var reload_speed : float
+var sprite : Sprite2D
 
 
 func _init(weapon_definition: WEAPON_DEFINITION) -> void:
-	weapon_name = weapon_definition.name
+	# adding the weapon texture to main hand
+	sprite = Sprite2D.new()
+	add_child(sprite)
 	texture = weapon_definition.texture
+	
+	weapon_name = weapon_definition.name
 	projectile = weapon_definition.projectile
 	number_of_projectiles = weapon_definition.number_of_projectiles
 	spread = weapon_definition.spread
 	reload_speed = weapon_definition.reload_speed
+
 
 """
 func finish_init() -> void:
@@ -32,7 +39,7 @@ func update_item(item_id):
 		item_id = 0
 	var texture_path = "res://ITEM/icons/ERROR_icon.png"
 	var image_texture = ItemDB.get_property_of_index(item_id,"texture")
-	%Sprite2D.texture = image_texture
+	sprite.texture = image_texture
 	Item_id = item_id
 
 
@@ -45,8 +52,8 @@ func return_texture() -> Texture2D:
 	return texture
 
 
-func change_texture(new_texture: Texture2D) -> void:
-	%Sprite2D.texture = new_texture
+func change_texture() -> void:
+	sprite.texture = texture
 
 
 func reload():
@@ -60,9 +67,9 @@ func use_main():
 		for i in number_of_projectiles:
 			var offset = randf_range(-spread,spread)
 			var shoot_projectile = projectile.instantiate()
-			print("Name des Projektils:", shoot_projectile.name)
-			print("was los: ", shoot_projectile.dir)
-			shoot_projectile.dir = Vector2(1.0,0).rotated(get_parent().rotation).rotated(offset)
+			# Hier kommt der Projektil Konstruktor hin für Upgrades etc:
+			
+			shoot_projectile.dir = Vector2(1.0,0).rotated(get_parent().global_rotation).rotated(offset)
 			shoot_projectile.start_pos = global_position
 			shoot_projectile.start_rot = global_rotation
 			get_tree().root.add_child(shoot_projectile)

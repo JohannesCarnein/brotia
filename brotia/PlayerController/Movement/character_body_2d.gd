@@ -144,8 +144,8 @@ func set_sprite_direction(direction):
 		Animated_arm_r.flip_h = 1
 		Animated_arm_r.position.x = -5
 	look_direction = direction
-	
-	
+
+
 func modifiy_health(damage):
 	health_component.current_health += damage
 

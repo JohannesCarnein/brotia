@@ -10,6 +10,6 @@ name = "Bow"
 texture = ExtResource("3_wctaq")
 type = 1
 projectile = ExtResource("1_3vrmx")
-number_of_projectiles = 1
+number_of_projectiles = 3
 spread = 0.1
 reload_speed = 0.5

@@ -19,16 +19,18 @@ var weapon : Weapon
 
 
 func _ready():
-	weapon = ProjectileWeapon.new(weapon_types.stick)
+	weapon = ProjectileWeapon.new(weapon_types.bow)
 	add_child(weapon)
 	#%Weapon.add_child(weapon)
-	%Weapon_Texture.texture = weapon.return_texture()
+	# HIER: %Weapon_Texture.texture = weapon.return_texture()
+	weapon.change_texture()
+	
 	print("Weapon:  ",weapon, weapon.name)
 	#%Weapon.finish_init()
 
 
-func change_weapon_texture(texture: Texture2D) -> void:
-	%Weapon_Texture.texture = weapon.return_texture()
+#func change_weapon_texture(texture: Texture2D) -> void:
+#	%Weapon_Texture.texture = weapon.return_texture()
 
 
 func use():
