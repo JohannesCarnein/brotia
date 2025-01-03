@@ -2,7 +2,8 @@ class_name ProjectileWeapon
 extends Weapon
 
 var projectile : PackedScene
-
+var skin_packed : PackedScene = preload("res://projectile/weapon_no_script.tscn")
+var weapon_skin
 
 enum RangeType {Melee, Projectile}
 var weapon_name: String
@@ -20,9 +21,10 @@ var charge_power: float
 
 func _init(weapon_definition: WEAPON_DEFINITION) -> void:
 	# adding the weapon texture to main hand
-	sprite = Sprite2D.new()
-	add_child(sprite)
 	texture = weapon_definition.texture
+	weapon_skin = skin_packed.instantiate()
+	weapon_skin.change_texture(texture)
+	add_child(weapon_skin)
 	
 	weapon_name = weapon_definition.name
 	projectile = weapon_definition.projectile
@@ -41,6 +43,7 @@ func finish_init() -> void:
 	get_parent().use_item_main_signal.connect(callable)
 	print("finished init")
 """
+
 
 func update_item(item_id):
 	if item_id == null:
@@ -82,7 +85,6 @@ func charge_shot(charge: float):
 			var shoot_projectile = projectile.instantiate()
 			shoot_projectile.add_charge(charge)
 			# Hier kommt der Projektil Konstruktor hin für Upgrades etc:
-			
 			shoot_projectile.dir = Vector2(1.0,0).rotated(get_parent().global_rotation).rotated(offset)
 			shoot_projectile.start_pos = global_position
 			shoot_projectile.start_rot = global_rotation
@@ -97,11 +99,9 @@ func use_main():
 			var offset = randf_range(-spread,spread)
 			var shoot_projectile = projectile.instantiate()
 			# Hier kommt der Projektil Konstruktor hin für Upgrades etc:
-			
 			shoot_projectile.dir = Vector2(1.0,0).rotated(get_parent().global_rotation).rotated(offset)
 			shoot_projectile.start_pos = global_position
 			shoot_projectile.start_rot = global_rotation
 			get_tree().root.add_child(shoot_projectile)
 			await get_tree().create_timer(0.01).timeout
 		reload()
-	

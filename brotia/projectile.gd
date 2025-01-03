@@ -24,10 +24,7 @@ var _distance_moved
 func _ready() -> void:
 	global_position = start_pos
 	global_rotation = start_rot
-	proj_name = proj_name
-	print("Projectile Ready", proj_name)
-	print("Projectile Attack", attack_damage)
-	
+
 
 func set_texture(texture: ImageTexture) -> void:
 	$Sprite2D.texture = texture
@@ -66,8 +63,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 				if number_of_possible_hits <= 0:
 					destroy(area.global_position)
 
+
 #increases the speed and attack damagewith the charge of the weapon
 func add_charge(charge):
 	speed = speed * (1 + charge)
-	attack.add_damage(charge*10)
-	
+	attack.add_damage(charge*20)

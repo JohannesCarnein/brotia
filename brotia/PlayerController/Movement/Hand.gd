@@ -22,7 +22,6 @@ var charge: float
 func _ready():
 	weapon = ProjectileWeapon.new(weapon_types.bow)
 	add_child(weapon)
-	weapon.change_texture()
 	
 	# array zum testen von Weapon swaps
 	weapon_array = [ProjectileWeapon.new(weapon_types.bow),
@@ -50,7 +49,6 @@ func change_weapon():
 	var swap_weapon: Weapon = weapon_array.pop_front()
 	weapon = swap_weapon
 	add_child(weapon)
-	weapon.change_texture()
 	weapon_array.append(swap_weapon)
 
 

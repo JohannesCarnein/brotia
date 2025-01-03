@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://btl17gsj2bv1h"]
+
+[ext_resource type="Script" path="res://projectile/weapon_no_script.gd" id="1_gprc3"]
+[ext_resource type="Texture2D" uid="uid://dxfvfxso0dvwg" path="res://ITEM/icons/Killer_scissors.png" id="2_vhmsf"]
+
+[node name="Weapon" type="Node2D"]
+texture_filter = 1
+scale = Vector2(0.365, 0.365)
+script = ExtResource("1_gprc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(8.21918, 2.73973)
+rotation = 0.794659
+texture = ExtResource("2_vhmsf")
