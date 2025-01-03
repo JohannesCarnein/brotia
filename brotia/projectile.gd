@@ -65,3 +65,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 				number_of_possible_hits -= 1
 				if number_of_possible_hits <= 0:
 					destroy(area.global_position)
+
+#increases the speed and attack damagewith the charge of the weapon
+func add_charge(charge):
+	speed = speed * (1 + charge)
+	attack.add_damage(charge*10)
+	

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://exmhuhp56txr"]
+
+[ext_resource type="Script" path="res://TESTSCENEN/test_weapon.gd" id="1_ivqoj"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(259, 164)
+script = ExtResource("1_ivqoj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(117, 13)
+zoom = Vector2(1.76, 1.76)

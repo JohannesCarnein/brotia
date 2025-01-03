@@ -13,6 +13,10 @@ var spread : float
 var reload_speed : float
 var sprite : Sprite2D
 
+var does_it_charge: bool
+var charge_time: float
+var charge_power: float
+
 
 func _init(weapon_definition: WEAPON_DEFINITION) -> void:
 	# adding the weapon texture to main hand
@@ -25,6 +29,10 @@ func _init(weapon_definition: WEAPON_DEFINITION) -> void:
 	number_of_projectiles = weapon_definition.number_of_projectiles
 	spread = weapon_definition.spread
 	reload_speed = weapon_definition.reload_speed
+	
+	does_it_charge = weapon_definition.does_it_charge
+	charge_time = weapon_definition.charge_time
+	charge_power = weapon_definition.charge_power
 
 
 """
@@ -48,6 +56,10 @@ func can_be_usesed():
 		return true
 
 
+func is_charge_weapon() -> bool:
+	return does_it_charge
+
+
 func return_texture() -> Texture2D:
 	return texture
 
@@ -60,6 +72,23 @@ func reload():
 	_ready_to_use = false
 	await get_tree().create_timer(reload_speed).timeout
 	_ready_to_use = true
+
+
+func charge_shot(charge: float):
+	if can_be_usesed():
+		print(charge)
+		for i in number_of_projectiles:
+			var offset = randf_range(-spread,spread)
+			var shoot_projectile = projectile.instantiate()
+			shoot_projectile.add_charge(charge)
+			# Hier kommt der Projektil Konstruktor hin für Upgrades etc:
+			
+			shoot_projectile.dir = Vector2(1.0,0).rotated(get_parent().global_rotation).rotated(offset)
+			shoot_projectile.start_pos = global_position
+			shoot_projectile.start_rot = global_rotation
+			get_tree().root.add_child(shoot_projectile)
+			await get_tree().create_timer(0.01).timeout
+		reload()
 
 
 func use_main():
@@ -75,3 +104,4 @@ func use_main():
 			get_tree().root.add_child(shoot_projectile)
 			await get_tree().create_timer(0.01).timeout
 		reload()
+	
