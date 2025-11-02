@@ -46,7 +46,7 @@ select strasse, plz, stadt, anzahl_raeume, anzahl_betten, kueche, raucher, sauna
 	left join saisonale_preise as sp
 	on fewo.id = sp.fewo_id and @wunschdatum between sp.saison_start and sp.saison_ende;
 
-DML update und delete
+-- DML update und delete
 
 -- update der beschreibung für eine wohnung über die attribute, die als unique key genutzt werden
 update fewo
